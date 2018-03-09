@@ -62,6 +62,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+			
+			.alert {
+				margin: 1.5rem 0;
+			}
         </style>
     </head>
     <body>
@@ -81,6 +85,10 @@
                 <div class="title m-b-md">
 				{{ config('app.name') }}
                 </div>
+				
+				<div class="alert">
+					Created by Xander Luciano &copy;2018
+				</div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

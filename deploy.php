@@ -4,7 +4,7 @@ namespace Deployer;
 require 'recipe/laravel.php';
 
 // Project name
-set('application', 'my_project');
+set('application', 'infusionx');
 
 // Project repository
 set('repository', 'git@github.com:XanderLuciano/infusionx.git');
@@ -27,9 +27,17 @@ host('infusionx')
     
 // Tasks
 
-task('build', function () {
+task('deploy:composer', function () {
+    run('cd {{release_path}} && composer install');
+});
+
+/*task('build', function () {
     run('cd {{release_path}} && build');
 });
+
+// Update Composer
+after('deploy:writable', 'deploy:composer');
+*/
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
