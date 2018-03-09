@@ -23,21 +23,31 @@ add('writable_dirs', []);
 // Hosts
 
 host('infusionx')
-    ->set('deploy_path', '/srv/prod/{{application}}');    
+	->stage('prod')
+    ->set('deploy_path', '/srv/prod/{{application}}');
+	
+// TODO: add build script for dev
+//host('dev')
     
 // Tasks
 
-task('deploy:composer', function () {
-    run('cd {{release_path}} && composer install');
+//*
+task('npm:install', function () {
+    run('cd {{release_path}} && npm install');
 });
 
-/*task('build', function () {
+task('npm:prod', function () {
+    run('cd {{release_path}} && npm run prod');
+});
+
+// Run npm prod
+after('deploy:writable', 'npm:install');
+after('npm:install', 'npm:prod');
+//*/
+
+task('build', function () {
     run('cd {{release_path}} && build');
 });
-
-// Update Composer
-after('deploy:writable', 'deploy:composer');
-*/
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');

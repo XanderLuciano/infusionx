@@ -60,11 +60,11 @@
             }
 
             .m-b-md {
-                margin-bottom: 2rem;
+                margin-bottom: 30px;
             }
 			
 			.alert {
-				margin: 2rem 0;
+				margin: 1.5rem 0;
 			}
         </style>
     </head>
@@ -83,15 +83,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-				{{ config('app.name') }}
+				{{ config('app.name') }} ❤️
                 </div>
 				
 				<div class="alert">
-					Created by Xander Luciano - &copy;2018
+					Created by Xander Luciano &copy;2018
 				</div>
 
                 <div class="links">
-                    <a href="https://ncviewer.com">NCViewer</a>
+                    <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
