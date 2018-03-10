@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport', // Use passport driver for API authentication, not token (JWT)
             'provider' => 'users',
         ],
     ],
