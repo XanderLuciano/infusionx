@@ -5,7 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        @if (env('app.env') == 'production')
+            <title>{{ config('app.name') }}</title>
+        @else
+            <title>[DEV] {{ config('app.name') }}</title>
+        @endif
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -60,11 +64,11 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 2rem;
             }
 			
 			.alert {
-				margin: 1.5rem 0;
+				margin: 2rem 0;
 			}
         </style>
     </head>
@@ -87,11 +91,11 @@
                 </div>
 				
 				<div class="alert">
-					Created by Xander Luciano &copy;2018
+					Created by Xander Luciano - &copy;2018
 				</div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://ncviewer.com">NCViewer</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
