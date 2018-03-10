@@ -22,7 +22,7 @@
 
                 <div class="card-body p-0">
                     <!-- No Tokens Notice -->
-                    <p class="mb-0" v-if="tokens.length === 0">
+                    <p class="mb-0 p-3" v-if="tokens.length === 0">
                         You have not created any personal access tokens.
                     </p>
 
