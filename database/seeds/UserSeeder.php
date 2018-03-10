@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
             'name' => 'Xander',
             'email' => 'test@gmail.com',
             'password' => bcrypt('123'),
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime,
         ]);
     }
 }

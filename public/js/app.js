@@ -47303,17 +47303,21 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(65)
+}
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(43)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-0ca92eac"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -47351,6 +47355,23 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47368,56 +47389,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+var User = function () {
+    function User() {
+        _classCallCheck(this, User);
+
+        this.name = '';
+        this.email = '';
+        this.joinDate = '';
+        this.role = '';
+    }
+
+    _createClass(User, [{
+        key: 'set',
+        value: function set(name, email, joined, role) {
+            this.name = name;
+            this.email = email;
+            this.joinDate = joined;
+            this.role = role;
+        }
+    }]);
+
+    return User;
+}();
+
+var user = new User();
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            user: user
+        };
+    },
     mounted: function mounted() {
-        console.log('Component mounted.');
+        var _this = this;
+
+        console.log('User Component Mounted.');
+
+        axios.get('/api/user').then(function (response) {
+            var data = response.data;
+            console.log(data);
+
+            _this.user.set(data.name, data.email, data.created_at, 'undefined');
+        });
     }
 });
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
-  }
-}
-
-/***/ }),
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -47947,7 +47965,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "card-body p-0" }, [
         _vm.clients.length === 0
           ? _c("p", { staticClass: "mb-0" }, [
               _vm._v(
@@ -48669,7 +48687,7 @@ var render = function() {
               _vm._v("Authorized Applications")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "card-body p-0" }, [
               _c("table", { staticClass: "table table-borderless mb-0" }, [
                 _vm._m(0),
                 _vm._v(" "),
@@ -48707,7 +48725,10 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "td",
-                        { staticStyle: { "vertical-align": "middle" } },
+                        {
+                          staticClass: "text-right",
+                          staticStyle: { "vertical-align": "middle" }
+                        },
                         [
                           _c(
                             "a",
@@ -49220,7 +49241,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "card-body p-0" }, [
           _vm.tokens.length === 0
             ? _c("p", { staticClass: "mb-0" }, [
                 _vm._v(
@@ -49251,7 +49272,10 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "td",
-                        { staticStyle: { "vertical-align": "middle" } },
+                        {
+                          staticClass: "text-right",
+                          staticStyle: { "vertical-align": "middle" }
+                        },
                         [
                           _c(
                             "a",
@@ -49558,6 +49582,108 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(66);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("13f787e7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0ca92eac\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ExampleComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0ca92eac\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ExampleComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.profile-grid[data-v-0ca92eac] {\n  display: grid;\n  grid-template-columns: auto 2fr;\n  grid-column-gap: 2rem;\n  grid-template-areas: \"label data\";\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "card card-default" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "profile-grid" }, [
+          _c("div", [_vm._v("Name")]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(_vm.user.name))]),
+          _vm._v(" "),
+          _c("div", [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(_vm.user.email))]),
+          _vm._v(" "),
+          _c("div", [_vm._v("Member Since")]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(_vm.user.joinDate))]),
+          _vm._v(" "),
+          _c("div", [_vm._v("Role")]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(_vm.user.role))])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "d-flex justify-content-between" }, [
+        _c("span", [_vm._v("OAuth Client Profile")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "action-link", attrs: { tabindex: "-1" } }, [
+          _vm._v("Edit Profile")
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

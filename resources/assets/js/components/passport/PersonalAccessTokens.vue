@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body p-0">
                     <!-- No Tokens Notice -->
                     <p class="mb-0" v-if="tokens.length === 0">
                         You have not created any personal access tokens.
@@ -43,7 +43,7 @@
                                 </td>
 
                                 <!-- Delete Button -->
-                                <td style="vertical-align: middle;">
+                                <td style="vertical-align: middle;" class="text-right">
                                     <a class="action-link text-danger" @click="revoke(token)">
                                         Delete
                                     </a>
