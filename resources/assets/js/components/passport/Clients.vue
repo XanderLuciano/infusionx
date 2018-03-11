@@ -21,7 +21,7 @@
 
             <div class="card-body p-0">
                 <!-- Current Clients -->
-                <p class="mb-0" v-if="clients.length === 0">
+                <p class="mb-0 p-3" v-if="clients.length === 0">
                     You have not created any OAuth clients.
                 </p>
 
