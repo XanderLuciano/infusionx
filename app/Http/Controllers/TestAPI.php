@@ -29,8 +29,16 @@ class TestAPI extends Controller
             ], 200);
         } else {
             return response()->json([
-                'data' => $user->toArray()
+                'data' => $user->toArray(),
+                'roles' => $user->roles()->pluck('name'),
             ], 200);
         }
+    }
+
+    public function create(Request $request)
+    {
+        return response()->json([
+            'debug' => $request->toArray(),
+        ], 200);
     }
 }

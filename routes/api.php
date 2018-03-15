@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/allusers', 'TestAPI@index');
 Route::get('/userid/{id}', 'TestAPI@show');
+
+Route::post('/create', 'TestAPI@create');
+
