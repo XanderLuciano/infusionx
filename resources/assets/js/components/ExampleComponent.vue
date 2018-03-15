@@ -40,7 +40,7 @@
             this.name = name;
             this.email = email;
             this.joinDate = joined;
-            this.role = role;
+            this.role = role || 'User';
         }
     }
     let user = new User();
@@ -57,9 +57,9 @@
 
             axios.get('/api/user').then( (response) => {
                 let data = response.data;
-                console.log(data);
+                console.log(response.data);
 
-                this.user.set(data.name, data.email, data.created_at, response.role);
+                this.user.set(data.data.name, data.data.email, data.data.created_at, data.role[0]);
             });
         }
     }

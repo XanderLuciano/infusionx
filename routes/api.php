@@ -14,7 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    $user = $request->user();
+    $role = $user->roles()->pluck('name');
+    //return $request->user();
+    return ['data' => $user, 'role' => $role];
 });
 
 Route::get('/allusers', 'TestAPI@index');
