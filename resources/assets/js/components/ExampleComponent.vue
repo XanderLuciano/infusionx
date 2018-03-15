@@ -59,7 +59,7 @@
                 let data = response.data;
                 console.log(data);
 
-                this.user.set(data.name, data.email, data.created_at, 'undefined');
+                this.user.set(data.name, data.email, data.created_at, response.role);
             });
         }
     }

@@ -12,7 +12,7 @@ class TestAPI extends Controller
         $users = User::all();
 
         return response()->json([
-            'data' => $users->toArray()
+            'data' => $users->toArray(),
         ], 200);
     }
 

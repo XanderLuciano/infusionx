@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/{vue_capture?}', function () {
+    return view('vue.index');
+})->where('vue_capture', '[\/\w\.-]*');
